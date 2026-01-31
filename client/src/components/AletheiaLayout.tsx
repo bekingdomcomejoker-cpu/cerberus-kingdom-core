@@ -6,13 +6,13 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from "@/components/ui/sidebar";
-import { Activity, BarChart3, BookOpen, LogOut, Settings } from "lucide-react";
+import { Activity, BarChart3, BookOpen, LogOut, Settings, Zap, Command } from "lucide-react";
 import { ReactNode } from "react";
 import { Link } from "wouter";
 
 interface AletheiaLayoutProps {
   children: ReactNode;
-  currentPage?: "analyze" | "history" | "reports" | "settings" | "wallboard";
+  currentPage?: "analyze" | "history" | "reports" | "settings" | "wallboard" | "admin" | "koan";
 }
 
 export function AletheiaLayout({ children, currentPage }: AletheiaLayoutProps) {
@@ -99,6 +99,32 @@ export function AletheiaLayout({ children, currentPage }: AletheiaLayoutProps) {
                 </span>
               </Button>
             </Link>
+
+            <Link href="/admin">
+              <Button
+                variant={currentPage === "admin" ? "default" : "ghost"}
+                className="w-full justify-start"
+                asChild
+              >
+                <span>
+                  <Zap className="mr-2 h-4 w-4" />
+                  Admin Dashboard
+                </span>
+              </Button>
+            </Link>
+
+            <Link href="/koan">
+              <Button
+                variant={currentPage === "koan" ? "default" : "ghost"}
+                className="w-full justify-start"
+                asChild
+              >
+                <span>
+                  <Command className="mr-2 h-4 w-4" />
+                  Koan Interface
+                </span>
+              </Button>
+            </Link>
           </div>
         </nav>
 
@@ -131,6 +157,8 @@ export function AletheiaLayout({ children, currentPage }: AletheiaLayoutProps) {
             {currentPage === "reports" && "Generated Reports"}
             {currentPage === "settings" && "Settings"}
             {currentPage === "wallboard" && "Global Wallboard"}
+            {currentPage === "admin" && "Admin Dashboard"}
+            {currentPage === "koan" && "Koan Interface"}
           </h2>
         </div>
 
