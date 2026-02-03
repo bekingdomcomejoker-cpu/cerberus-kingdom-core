@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Python
 __pycache__/
 *.py[cod]
@@ -155,3 +156,13 @@ temp/
 *.sqlite
 *.sqlite3
 >>>>>>> aletheia-web/main
+=======
+logs/*.log
+quarantine/*
+archive/*
+inbox/*
+*.pipe
+__pycache__/
+.DS_Store
+nohup.out
+>>>>>>> kingdom-engine/main
